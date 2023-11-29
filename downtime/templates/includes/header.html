@@ -1,0 +1,51 @@
+{% load static %}
+<header>
+  <nav class="navbar navbar-light" style="background-color: rgb(55, 58, 54)">
+    <div class="container">
+      <a class="navbar-brand" href="{% url 'homepage:index' %}" style="color: white">
+        Краснояркий филиал Полюс Логистики
+      </a>        
+      <ul class="nav  nav-pills">
+        {% with request.resolver_match.view_name as view_name %}            
+        <ul class="nav nav-pills">
+          <li class="nav-item">              
+            <a
+              class="nav-link {% if view_name == 'homepage:index' %} active bg-warning {% endif %}" 
+              href="{% url 'homepage:index' %}" style="color: white"
+              >
+              Главная 
+            </a>
+          </li>
+          <li class="nav-item">
+            <a 
+              class="nav-link {% if view_name == 'filling:filling' %} active bg-warning {% endif %}" 
+              href="{% url 'filling:filling' %}" style="color: white"
+              >
+              Внесение информации о простоях
+            </a> 
+          </li>
+          <li class="nav-item">
+            <a 
+              class="nav-link {% if view_name == 'homepage:index' %} active bg-warning {% endif %}"
+              href="{% url 'homepage:index' %}" style="color: white"
+            >
+              О проекте
+            </a> 
+          </li>
+        </ul>
+        {% endwith %}
+      </div> 
+      <a class="navbar-brand" href="{% url 'homepage:index' %}">
+        <img src="{% static 'img/logo.png' %}" height="50" class="d-inline-block align-top" alt="">            
+      </a>         
+    </div>
+  </nav>
+  <ul class="sidebar-nav">
+   {% if user.is_authenticated %}
+     <li>User: {{ user.get_short_name }}</li>
+     <li><a href="{% url 'logout'%}?next={{request.path}}">Logout</a></li>
+   {% else %}
+     <li><a href="{% url 'login'%}?next={{request.path}}">Login</a></li>
+   {% endif %}
+  </ul>
+</header>
