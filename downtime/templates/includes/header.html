@@ -2,7 +2,7 @@
 <header>
   <nav class="navbar navbar-light" style="background-color: rgb(55, 58, 54)">
     <div class="container">
-      <a class="navbar-brand" href="{% url 'homepage:index' %}" style="color: white">
+      <a class="navbar-brand"  style="color: white">
         Краснояркий филиал Полюс Логистики
       </a>        
       <ul class="nav  nav-pills">
@@ -32,6 +32,11 @@
               О проекте
             </a> 
           </li>
+          {% if user.is_authenticated %}
+          <li class="btn btn-outline-primary me-2" style="color: white"> 
+            <p>{{ user.get_short_name }} </p>
+          </li>
+          {% endif %}
         </ul>
         {% endwith %}
       </div> 
