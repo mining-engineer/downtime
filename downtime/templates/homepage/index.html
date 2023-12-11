@@ -1,12 +1,17 @@
 {% extends "base.html" %}
 {% block title %}
 {% load django_bootstrap5 %}
-  Учёт ремонтов. О проекте
-
+  ТС в ремонте
 {% endblock %}
 {% block content %}
-  <h1 class="pb-2 mb-0">О проекте</h1>
-  <p>
-    Сервис для регистрации простоев ТС Полюс Логистики
-  </p>
+<tbody>
+  {% for pk in failure_list %}
+      <tr>
+          <td>{{ pk.failure }}</td>
+          <td>{{ pk.st_num }}</td>
+          <td>{{ pk.description }}</td>
+      </tr>
+  {% endfor %}
+  </tbody>
+
 {% endblock %}
