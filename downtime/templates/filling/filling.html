@@ -1,7 +1,15 @@
 {% extends "base.html" %}
+{% load django_bootstrap5 %}
 {% load static %}
 {% block title %}
-  Учёт ремонтов
+Внесение простоя
 {% endblock %}
 {% block content %}
+<div class="card col-6">
+  <div class="card-header">
+    <form>
+      {% bootstrap_form form %}  {% bootstrap_button button_type="submit" content="Отправить" %}
+    </form>
+  </div>
+</div>
 {% endblock %}

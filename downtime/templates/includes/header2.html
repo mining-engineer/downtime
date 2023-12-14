@@ -18,9 +18,11 @@
                     <li class="nav-item">
                         <a class="nav-link {% if view_name == 'homepage:index' %} active bg-warning {% endif %}" href="{% url 'homepage:index' %}" style="color: white">ТС в ремонте</a>
                     </li>
+                    {% if user.is_authenticated %}
                     <li class="nav-item">
                         <a class="nav-link {% if view_name == 'filling:filling' %} active bg-warning {% endif %}" href="{% url 'filling:filling' %}" style="color: white">Внесение простоя</a>
                     </li>
+                    {% endif %}
                     
                 </ul>
                 

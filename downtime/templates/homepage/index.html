@@ -5,12 +5,15 @@
 {% endblock %}
 {% block content %}
 <tbody>
-  {% for pk in failure_list %}
-      <tr>
-          <td>{{ pk.failure }}</td>
-          <td>{{ pk.st_num }}</td>
-          <td>{{ pk.description }}</td>
-      </tr>
+  {% for item in failure_list %}
+      <ul>
+          <li>{{ item.failure }}</li>
+          <li>{{ item.description }}</li>
+          <li>{{ item.time_startstamp }}</li>
+          <li>{{ item.state_number}}</li>
+          <li>{{ item.state_number_id}}</li>
+
+      </ul>
   {% endfor %}
   </tbody>
 

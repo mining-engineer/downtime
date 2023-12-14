@@ -78,13 +78,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'downtime.wsgi.application'
 
 
-# Database
-# https://docs.djangoproject.com/en/4.2/ref/settings/#databases
-
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'downtime',
+        'USER': 'admin',
+        'PASSWORD': 'admin',
+        'HOST': 'localhost',
+        'PORT': 5432,
     }
 }
 
